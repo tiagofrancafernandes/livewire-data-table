@@ -4,6 +4,9 @@
             <input wire:model.debounce.300ms="search" type="text" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"placeholder="Search users...">
         </div>
         <div class="w-1/6 relative mx-1">
+            <style>
+                select option:checked {   color: #edf2f7;  background: #8aa2bb;}
+            </style>
             <select wire:model="orderBy" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
                 <option value="id">ID</option>
                 <option value="name">Name</option>
@@ -15,9 +18,9 @@
             </div>
         </div>
         <div class="w-1/6 relative mx-1">
-            <select wire:model="orderAsc" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
-                <option value="1">Ascending</option>
-                <option value="0">Descending</option>
+            <select wire:model="orderDirection" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                <option value="asc" {{ $orderDirection ? 'selected' : '' }}>Ascending</option>
+                <option value="desc" {{ $orderDirection ? 'selected' : '' }}>Descending</option>
             </select>
             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -38,10 +41,10 @@
     <table class="table-auto w-full mb-6">
         <thead>
             <tr>
-                <th class="px-4 py-2">ID</th>
-                <th class="px-4 py-2">Name</th>
-                <th class="px-4 py-2">Email</th>
-                <th class="px-4 py-2">Created At</th>
+                <th class="px-4 py-2 cursor-pointer" wire:click="changeOrderBy('id')">ID</th>
+                <th class="px-4 py-2 cursor-pointer" wire:click="changeOrderBy('name')">Name</th>
+                <th class="px-4 py-2 cursor-pointer" wire:click="changeOrderBy('email')">Email</th>
+                <th class="px-4 py-2 cursor-pointer" wire:click="changeOrderBy('created_at')">Created At</th>
             </tr>
         </thead>
         <tbody>
