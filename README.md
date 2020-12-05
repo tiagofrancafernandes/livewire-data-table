@@ -1,5 +1,6 @@
-Original repo:
-https://github.com/davidgrzyb/laravel-livewire-datatable-example
+Original repo: https://github.com/davidgrzyb/laravel-livewire-datatable-example
+
+Video Tutorial by davidgrzyb: https://www.youtube.com/watch?v=3B_BOQcghyA
 
 ---
 
