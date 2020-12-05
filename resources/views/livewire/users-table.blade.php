@@ -38,23 +38,20 @@
             </div>
         </div>
     </div>
-    <table class="table-auto w-full mb-6">
+    <table class="table-auto w-full">
+    {{-- <table class="table-auto w-full mb-6"> --}}
         <thead>
             <tr>
                 <th class="px-4 py-2 cursor-pointer" wire:click="changeOrderBy('id')">ID</th>
                 <th class="px-4 py-2 cursor-pointer" wire:click="changeOrderBy('name')">Name</th>
                 <th class="px-4 py-2 cursor-pointer" wire:click="changeOrderBy('email')">Email</th>
                 <th class="px-4 py-2 cursor-pointer" wire:click="changeOrderBy('created_at')">Created At</th>
+                <th class="px-4 py-2 w-1/6">Actions</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="w-full">
             @foreach($users as $user)
-                <tr>
-                    <td class="border px-4 py-2">{{ $user->id }}</td>
-                    <td class="border px-4 py-2">{{ $user->name }}</td>
-                    <td class="border px-4 py-2">{{ $user->email }}</td>
-                    <td class="border px-4 py-2">{{ $user->created_at->diffForHumans() }}</td>
-                </tr>
+            @livewire('user-line', [$user], key($user->id))
             @endforeach
         </tbody>
     </table>
