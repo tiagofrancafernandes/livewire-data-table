@@ -1,3 +1,8 @@
+Original repo:
+https://github.com/davidgrzyb/laravel-livewire-datatable-example
+
+---
+
 ## Livewire Datatable Example
 
 This example contains a `UsersTable` component built with livewire that is a great example for how easy it is to build datatables with Livewire.
